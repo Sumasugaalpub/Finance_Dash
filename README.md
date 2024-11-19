@@ -2,7 +2,7 @@
 
 # Track your Transactions
 
-![Monitor your earnings and spending effortlessly with Finance_dash.](/.github/images/img_main.png "Track your income and expenses with Finance.")
+![Monitor your earnings and spending effortlessly with Finance_dash.](qiraayah.png "Track your income and expenses with Finance.")
 
 
 
@@ -100,56 +100,75 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 ```
 
-5. Obtain Clerk Authentication Keys
 
-   1. **Source**: Clerk Dashboard or Settings Page
-   2. **Procedure**:
-      - Log in to your Clerk account.
-      - Navigate to the dashboard or settings page.
-      - Look for the section related to authentication keys.
-      - Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` provided in that section.
 
-6. Retrieve Neon Database URI
+# Project Setup Guide
 
-   1. **Source**: Database Provider (e.g., Neon, PostgreSQL)
-   2. **Procedure**:
-      - Access your database provider's platform or configuration.
-      - Locate the database connection details.
-      - Replace `<username>`, `<password>`, `<hostname>`, and `<database>` placeholders in the URI with your actual database credentials.
-      - Ensure to include `?sslmode=require` at the end of the URI for SSL mode requirement.
+Follow these steps to configure and run the project successfully:
 
-7. Specify Public App URL
+---
 
-   1. **Procedure**:
-      - Replace `http://localhost:3000` with the URL of your deployed application.
+## 1. Obtain Clerk Authentication Keys
 
-8. Save and Secure:
+1. Log in to your Clerk account.
+2. Navigate to the **Dashboard** or **Settings** page.
+3. Locate the section for authentication keys.
+4. Copy the following keys:
+   - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+   - `CLERK_SECRET_KEY`
 
-   - Save the changes to the `.env.local` file.
+---
 
-9. Install Project Dependencies using `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps`.
+## 2. Retrieve Neon Database URI
 
-10. Migrate database:
+1. Access your database provider’s platform (e.g., Neon or PostgreSQL).
+2. Locate the database connection details.
+3. Replace placeholders in the URI (`<username>`, `<password>`, `<hostname>`, and `<database>`) with your credentials.
+4. Append `?sslmode=require` to the URI to enable SSL.
 
-In terminal, run `npm run db:generate` to generate database client and `npm run db:migrate` to make sure that your database is up-to-date along with schema.
+---
 
-11. Run the Seed Script:
+## 3. Specify the Public App URL
 
-In the same terminal, run the following command to execute the seed script:
+Update the `.env.local` file, replacing `http://localhost:3000` with your deployed application’s URL.
+
+---
+
+## 4. Save and Secure Environment Variables
+
+Ensure all environment variables are saved in the `.env.local` file.
+
+---
+
+## 5. Install Project Dependencies
+
+Run one of the following commands to install dependencies:
 
 ```bash
+npm install --legacy-peer-deps
+
+OR
+
+bash
+Copy code
+yarn install --legacy-peer-deps
+6. Migrate the Database
+Generate the database client and apply migrations by running:
+bash
+Copy code
+npm run db:generate
+npm run db:migrate
+7. Run the Seed Script
+Seed the database with initial data using:
+
+bash
+Copy code
 npm run db:seed
-```
+This script executes the scripts/seed.ts file and populates your database with transaction data.
 
-This command uses `npm` to execute the Typescript file (`scripts/seed.ts`) and writes transaction data in database.
+8. Verify Data in the Database
+After completing the seed process, check your database to confirm that the data has been successfully added.
 
-12. Verify Data in Database:
-
-Once the script completes, check your database to ensure that the transaction data has been successfully seeded.
-
-13. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev`.
-
-**NOTE:** Please make sure to keep your API keys and configuration values secure and do not expose them publicly.
 
 
 
